@@ -1,0 +1,5 @@
+com\codesimcoe\collisionfx\main\CollisionFxMain.class
+com\codesimcoe\collisionfx\ColliderObject.class
+com\codesimcoe\collisionfx\CollisionFx.class
+com\codesimcoe\collisionfx\Configuration.class
+module-info.class
