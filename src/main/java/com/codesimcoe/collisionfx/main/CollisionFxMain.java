@@ -32,21 +32,7 @@ public class CollisionFxMain extends Application {
     primaryStage.setScene(collisionFx.getScene());
     primaryStage.show();
 
-    for (int i = 0; i < 50; i++) {
-      ColliderObject object = new ColliderObject(
-        this.random.nextGaussian(10, 5),
-        ColorUtils.randomColor()
-      );
-      collisionFx.addObject(object);
-
-      // Random position within the scene
-      object.setX(Math.random() * collisionFx.getScene().getWidth());
-      object.setY(Math.random() * collisionFx.getScene().getHeight());
-
-      // Random velocity
-      object.setVx(this.random.nextGaussian(0, 10));
-      object.setVy(this.random.nextGaussian(0, 10));
-    }
+    collisionFx.getScene().setOnMouseClicked(event -> this.spawn(collisionFx, event.getX(), event.getY()));
 
     EventHandler<ActionEvent> update = event -> collisionFx.update();
 
@@ -54,5 +40,22 @@ public class CollisionFxMain extends Application {
     Animation loop = new Timeline(new KeyFrame(duration, update));
     loop.setCycleCount(Animation.INDEFINITE);
     loop.play();
+  }
+
+  private void spawn(final CollisionFx collisionFx, final double x, final double y) {
+    ColliderObject object = new ColliderObject(
+      this.random.nextGaussian(20, 5), // size
+      ColorUtils.randomColor()
+    );
+
+    // Random position within the scene
+    object.setX(x);
+    object.setY(y);
+
+    // Random velocity
+    object.setVx(this.random.nextGaussian(0, 10));
+    object.setVy(this.random.nextGaussian(0, 10));
+
+    collisionFx.addObject(object);
   }
 }
