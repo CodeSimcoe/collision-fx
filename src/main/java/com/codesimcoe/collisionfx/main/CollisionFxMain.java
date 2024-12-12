@@ -3,6 +3,7 @@ package com.codesimcoe.collisionfx.main;
 import com.codesimcoe.collisionfx.ColliderObject;
 import com.codesimcoe.collisionfx.CollisionFx;
 import com.codesimcoe.collisionfx.ColorUtils;
+import com.codesimcoe.collisionfx.Configuration;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -34,9 +35,10 @@ public class CollisionFxMain extends Application {
 
     collisionFx.getScene().setOnMouseClicked(event -> this.spawn(collisionFx, event.getX(), event.getY()));
 
-    EventHandler<ActionEvent> update = event -> collisionFx.update();
+    EventHandler<ActionEvent> update = _ -> collisionFx.update();
 
-    Duration duration = Duration.millis(40);
+    // 50 fps
+    Duration duration = Duration.millis(20);
     Animation loop = new Timeline(new KeyFrame(duration, update));
     loop.setCycleCount(Animation.INDEFINITE);
     loop.play();
@@ -53,8 +55,8 @@ public class CollisionFxMain extends Application {
     object.setY(y);
 
     // Random velocity
-    object.setVx(this.random.nextGaussian(0, 10));
-    object.setVy(this.random.nextGaussian(0, 10));
+    object.setVx(this.random.nextGaussian(0, Configuration.VELOCITY_STDDEV));
+    object.setVy(this.random.nextGaussian(0, Configuration.VELOCITY_STDDEV));
 
     collisionFx.addObject(object);
   }
