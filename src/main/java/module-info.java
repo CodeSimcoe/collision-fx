@@ -1,8 +1,6 @@
-module collision.fx {
+module collisionfx {
 
   requires javafx.graphics;
-
-  requires static lombok;
 
   exports com.codesimcoe.collisionfx.main;
 }

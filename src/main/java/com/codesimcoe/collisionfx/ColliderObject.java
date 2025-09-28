@@ -3,9 +3,7 @@ package com.codesimcoe.collisionfx;
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import lombok.Data;
 
-@Data
 public class ColliderObject {
 
   private final Circle circle;
@@ -91,5 +89,45 @@ public class ColliderObject {
       other.setVx(v2xNew);
       other.setVy(v2yNew);
     }
+  }
+
+  public double getX() {
+    return this.x;
+  }
+
+  public double getY() {
+    return this.y;
+  }
+
+  public void setX(final double x) {
+    this.x = x;
+  }
+
+  public void setY(final double y) {
+    this.y = y;
+  }
+
+  public double getVx() {
+    return this.vx;
+  }
+
+  public double getVy() {
+    return this.vy;
+  }
+
+  public void setVx(final double vx) {
+    this.vx = vx;
+  }
+
+  public void setVy(final double vy) {
+    this.vy = vy;
+  }
+
+  public double getMass() {
+    return this.mass;
+  }
+
+  public double getRadius() {
+    return this.radius;
   }
 }

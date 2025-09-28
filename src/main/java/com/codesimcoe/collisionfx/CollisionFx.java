@@ -3,12 +3,10 @@ package com.codesimcoe.collisionfx;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
-import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
 public class CollisionFx {
 
   private final Group root;
@@ -41,5 +39,9 @@ public class CollisionFx {
   public void addObject(final ColliderObject object) {
     this.objects.add(object);
     this.root.getChildren().add(object.getNode());
+  }
+
+  public Scene getScene() {
+    return this.scene;
   }
 }

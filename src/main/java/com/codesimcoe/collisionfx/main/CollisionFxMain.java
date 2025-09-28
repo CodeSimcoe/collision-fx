@@ -20,10 +20,6 @@ public class CollisionFxMain extends Application {
 
   private final Random random = new Random();
 
-  public static void main(final String[] args) {
-    launch(args);
-  }
-
   @Override
   public void start(final Stage primaryStage) {
 
@@ -45,8 +41,9 @@ public class CollisionFxMain extends Application {
   }
 
   private void spawn(final CollisionFx collisionFx, final double x, final double y) {
+    double radius = this.random.nextGaussian(20, 5);
     ColliderObject object = new ColliderObject(
-      this.random.nextGaussian(20, 5), // size
+      radius,
       ColorUtils.randomColor()
     );
 
